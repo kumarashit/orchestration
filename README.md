@@ -7,3 +7,4 @@
 [OpenAPI doc](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/opensds/orchestration/master/openapi-spec/swagger.yaml)
 ## Introduction
 Repo for automation and orchestration
+[OpenAPI doc](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/opensds/orchestration/master/openapi-spec/swagger.yaml)
