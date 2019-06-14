@@ -70,3 +70,4 @@ parameters:
     type: integer
     description: "Failure timeout"
     default: 60
+    required: true
