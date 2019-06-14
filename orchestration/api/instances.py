@@ -39,7 +39,9 @@ status_map = {'requested': 'Running', 'succeeded': 'Success',
 # St2 example of data:/v1beta/orchestration/instances -H
 # "Content-Type:application/json" -d
 # '{"action":"aks.ak_echo_py", "parameters":{"message":"Hello World"}}'
-@instance.route("/v1beta/<string:tenant_id>/orchestration/instances",
+# FIXME: changing the URL to /orchestartion/<tenant_id>/instances,
+# it should be /v1beta/<string:tenant_id>/orchestration/instances
+@instance.route("/orchestration/<string:tenant_id>/instances",
                 methods=['POST'])
 def instance_ops(tenant_id=''):
     c = Connector().morph()
@@ -257,11 +259,17 @@ def get_instance_sd(service_def_id=''):
     return jsonify(wf_list), 200
 
 
+# FIXME: the URL is changed temporarily to:
+# /orchestration/<string:tenant_id>>/instances/<string:instance_id>
+# and /orchestration/<string:tenant_id>/instances
+# It should be fixed to:
+# /v1beta/<string:tenant_id>/orchestration/instances/<string:instance_id>
+# /v1beta/<string:tenant_id>/orchestration/instances
 @instance.route(
-    "/v1beta/<string:tenant_id>/orchestration/instances/<string:instance_id>",
+    "/orchestration/<string:tenant_id>/instances/<string:instance_id>",
     methods=['GET', 'PUT', 'DELETE'])
 @instance.route(
-    "/v1beta/<string:tenant_id>/orchestration/instances",
+    "/orchestration/<string:tenant_id>/instances",
     methods=['GET'])
 def wf_ops(tenant_id='', instance_id=''):
     c = Connector().morph()
